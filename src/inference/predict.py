@@ -11,11 +11,26 @@ from src.inference.load_model import (
     load_vectorizer,
 )
 
-# =========================
-# Load model & vectorizer
-# =========================
-intent_model = load_intent_model()
-vectorizer = load_vectorizer()
+intent_model = None
+vectorizer = None
+load_error = None
+
+
+def _get_model_and_vectorizer():
+    global intent_model, vectorizer, load_error
+    if intent_model is not None and vectorizer is not None:
+        return intent_model, vectorizer
+
+    if load_error is not None:
+        raise RuntimeError(load_error)
+
+    try:
+        intent_model = load_intent_model()
+        vectorizer = load_vectorizer()
+        return intent_model, vectorizer
+    except Exception as exc:
+        load_error = str(exc)
+        raise RuntimeError(load_error) from exc
 
 # =========================
 # Intent label mapping
@@ -38,11 +53,12 @@ def clean_text(text: str) -> str:
 # Single intent prediction
 # =========================
 def predict_intent(text: str):
+    model_obj, vectorizer_obj = _get_model_and_vectorizer()
     cleaned_text = clean_text(text)
 
-    X = vectorizer.transform([cleaned_text])
+    X = vectorizer_obj.transform([cleaned_text])
 
-    probabilities = intent_model.predict_proba(X)[0]
+    probabilities = model_obj.predict_proba(X)[0]
     class_index = probabilities.argmax()
 
     intent = LABEL_MAP.get(class_index, "unknown")
@@ -57,10 +73,11 @@ def predict_intent(text: str):
 # Batch intent prediction
 # =========================
 def predict_batch_intent(texts: list):
+    model_obj, vectorizer_obj = _get_model_and_vectorizer()
     cleaned_texts = [clean_text(t) for t in texts]
-    X = vectorizer.transform(cleaned_texts)
+    X = vectorizer_obj.transform(cleaned_texts)
 
-    probabilities = intent_model.predict_proba(X)
+    probabilities = model_obj.predict_proba(X)
     class_indices = probabilities.argmax(axis=1)
 
     results = []
