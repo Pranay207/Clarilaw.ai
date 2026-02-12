@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 import sys
 from contextlib import asynccontextmanager
 
@@ -15,6 +16,9 @@ from src.models.verify_models import check_models
 
 
 def _raise_if_models_missing() -> None:
+    if os.getenv("SKIP_MODEL_CHECK", "0").strip().lower() in {"1", "true", "yes"}:
+        return
+
     missing, empty = check_models()
     if not missing and not empty:
         return
