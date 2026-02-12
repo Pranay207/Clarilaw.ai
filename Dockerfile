@@ -8,8 +8,6 @@ COPY api/ api/
 COPY src/ src/
 COPY requirements.txt .
 ENV PIP_ROOT_USER_ACTION=ignore
-ENV PIP_ROOT_USER_ACTION=ignore
-ENV PIP_ROOT_USER_ACTION=ignore
 
 RUN pip install --no-cache-dir -r requirements.txt
 
