@@ -1,0 +1,76 @@
+# Data handling
+numpy
+pandas
+
+# NLP
+nltk
+spacy
+scikit-learn
+
+# Deep Learning
+torch
+transformers
+datasets
+
+# Model persistence
+joblib
+
+# API & Backend
+fastapi
+uvicorn
+
+# Text processing & utilities
+regex
+tqdm
+
+# Visualization & evaluation
+matplotlib
+seaborn
+
+# Jupyter (for notebooks)
+jupyter
+ipykernel
+
+# Optional (recommended)
+python-multipart
+pydantic
+
+# Deployment (optional but valuable)
+docker
+gunicorn
+# Cloud Integration (optional)
+boto3
+google-cloud-storage
+azure-storage-blob
+# Monitoring & Logging (optional)
+loguru
+sentry-sdk
+
+# Testing (optional)
+pytest
+pytest-cov
+requests
+httpx
+# Documentation (optional)
+sphinx
+sphinx-rtd-theme
+mkdocs
+mkdocs-material
+mkdocstrings
+pymdown-extensions
+
+# Linting & Formatting (optional)
+black
+flake8
+isort
+mypy
+
+# Version Control (optional)
+pre-commit
+bandit
+safety
+# Environment Management (optional)
+
+python-dotenv
+pipenv
+poetry

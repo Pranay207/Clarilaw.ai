@@ -1,0 +1,28 @@
+Accuracy: 0.99
+
+Final_IC.csv
+Precision: 1.00
+Recall: 0.98
+F1-score: 0.99
+
+crpc_sections.csv
+Precision: 0.83
+Recall: 1.00
+F1-score: 0.91
+
+ipc_sections.csv
+Precision: 1.00
+Recall: 1.00
+F1-score: 1.00
+
+with open("../evaluation/metrics.txt", "w") as f:
+    f.write(f"Accuracy  : {accuracy:.4f}\n")
+    f.write(f"Precision : {precision:.4f}\n")
+    f.write(f"Recall    : {recall:.4f}\n")
+    f.write(f"F1-score  : {f1:.4f}\n")
+
+
+Accuracy  : 0.9240
+Precision : 0.9180
+Recall    : 0.9210
+F1-score  : 0.9190
