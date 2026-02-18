@@ -1,8 +1,0 @@
-fastapi
-gunicorn
-uvicorn
-python-multipart
-pydantic
-numpy
-scikit-learn
-joblib
