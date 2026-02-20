@@ -1,29 +1,83 @@
-# Clarilaw.ai
+# Clarilaw.ai ⚖️🤖
+### AI-Powered Legal Understanding Platform
 
-Legal AI service for intent classification and related utilities, with a FastAPI backend and supporting training/evaluation scripts.
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-API-green)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-NLP-orange)
+![Transformers](https://img.shields.io/badge/Transformers-HuggingFace-yellow)
+![PyTorch](https://img.shields.io/badge/PyTorch-Deep%20Learning-red)
+![License](https://img.shields.io/badge/License-MIT-brightgreen)
 
-**Showcase**
-- Production‑ready FastAPI backend with clean routing and startup validation.
-- End‑to‑end ML workflow: preprocessing, training, evaluation, serving.
-- Dual pipeline support: classical ML (TF‑IDF + scikit‑learn) and transformer fine‑tuning.
-- Reproducible scripts and project‑relative paths for consistent local or CI runs.
-- Clear artifacts: models saved under `models/`, reports under `evaluation/`.
+## 📘 Overview
 
-**Tech Stack**
-- Python, FastAPI, scikit‑learn, Transformers, PyTorch
-- pandas, NumPy, matplotlib, seaborn
+**Clarilaw.ai** is an AI-powered legal intelligence service that helps users understand legal queries through **intent classification and NLP-driven utilities**. The project is designed as a **production-ready Machine Learning system**, focusing on clean architecture, reproducibility, and deployable ML inference APIs.
 
-**API Endpoints**
-- `POST /api/classify` intent classification
-- `POST /api/summarize` text summarization (placeholder logic)
-- `POST /api/chat` chat response (placeholder logic)
+> 🎯 **Focus:** Machine Learning Engineering, NLP pipelines, and API-based model serving (no frontend by design).
 
-**Example Requests**
+---
+
+## 🚀 Why Clarilaw.ai?
+
+Legal language is complex and inaccessible to non-experts.  
+Clarilaw.ai demonstrates how **Machine Learning and NLP** can be used to:
+
+- ⚖️ Understand legal intent from user queries  
+- 🧠 Classify legal questions accurately  
+- 🔌 Serve ML models through scalable REST APIs  
+- ♻️ Build reproducible, industry-style ML pipelines  
+
+This project reflects **real-world ML engineering practices**, not just academic experimentation.
+
+---
+
+## ✨ Key Highlights (Recruiter-Focused)
+
+* ✅ **Production-ready FastAPI backend** with modular routing and validation
+* ✅ **End-to-end ML workflow**: data preprocessing → training → evaluation → inference
+* ✅ **Dual modeling pipelines**:
+
+  * Classical ML (TF-IDF + scikit-learn)
+  * Transformer-based intent classification (PyTorch + Hugging Face)
+* ✅ **Reproducible experiments** with project-relative paths
+* ✅ **Clear artifacts management**:
+
+  * Trained models → `models/`
+  * Metrics & reports → `evaluation/`
+* ✅ **Docker-ready & deployment-friendly** design
+
+---
+
+## 🧠 Tech Stack
+
+* **Languages & Frameworks**: Python, FastAPI
+* **Machine Learning**: scikit-learn, Transformers
+* **Deep Learning**: PyTorch
+* **Data Processing**: pandas, NumPy
+* **Evaluation & Visualization**: matplotlib, seaborn
+
+---
+
+## 🔌 API Endpoints
+
+| Endpoint         | Method | Description                                  |
+| ---------------- | ------ | -------------------------------------------- |
+| `/api/classify`  | POST   | Legal intent classification                  |
+| `/api/summarize` | POST   | Legal text summarization (placeholder logic) |
+| `/api/chat`      | POST   | Chat-style response (placeholder logic)      |
+
+---
+
+## 📥 Example Requests
+
+### Intent Classification
+
 ```powershell
 curl -X POST "http://127.0.0.1:8000/api/classify" ^
   -H "Content-Type: application/json" ^
   -d "{\"text\":\"Explain Section 420 of IPC\"}"
 ```
+
+### Summarization
 
 ```powershell
 curl -X POST "http://127.0.0.1:8000/api/summarize" ^
@@ -31,107 +85,147 @@ curl -X POST "http://127.0.0.1:8000/api/summarize" ^
   -d "{\"text\":\"Long legal text here...\"}"
 ```
 
-**Evaluation Snapshot**
-- Metrics and artifacts are tracked under `evaluation/`.
-- See `evaluation/metrics.txt` and `evaluation/results.md` for the latest run.
+---
 
-**Highlights**
-- FastAPI API with `/api/classify`, `/api/summarize`, and `/api/chat` routes.
-- Scikit-learn intent classifier with TF‑IDF vectorization.
-- Optional transformer training pipeline for intent classification.
-- Utilities for data validation, training, and evaluation.
+## 📊 Evaluation Snapshot
 
-**Requirements**
-- Python 3.10+
-- Windows, macOS, or Linux
+* Model metrics and artifacts are stored under `evaluation/`
+* Refer to:
 
-**Quick Start**
+  * `evaluation/metrics.txt`
+  * `evaluation/results.md`
+
+These include accuracy, precision, recall, F1-score, and error analysis summaries.
+
+---
+
+## 📁 Project Structure
+
+```
+api/            # FastAPI application and routes
+src/            # Training, inference, and ML utilities
+data/           # Raw and processed datasets
+models/         # Saved ML and DL model artifacts
+evaluation/     # Metrics, plots, and evaluation reports
+deployment/     # Docker and deployment configs
+```
+
+---
+
+## ⚙️ Requirements
+
+* Python **3.10+**
+* Windows / macOS / Linux
+
+Install dependencies:
+
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-Run the API:
+---
+
+## ▶️ Running the API
+
+### Option 1: Run as a Python module
+
 ```powershell
 .\.venv\Scripts\python.exe -m api
 ```
 
-Or with Uvicorn:
+### Option 2: Run with Uvicorn (recommended)
+
 ```powershell
 .\.venv\Scripts\python.exe -m uvicorn api.main:app --reload
 ```
 
-Open:
-- `http://127.0.0.1:8000/` for the root message
-- `http://127.0.0.1:8000/docs` for Swagger UI
+Open in browser:
 
-**Project Layout**
-- `api/` FastAPI app and routes
-- `src/` training, inference, and utilities
-- `data/` datasets and processed artifacts
-- `models/` trained model artifacts
-- `evaluation/` evaluation outputs and reports
+* Root: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+* Swagger UI: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 
-**Training (ML)**
-Train the scikit‑learn model and vectorizer:
+---
+
+## 🧪 Model Training
+
+### Train Classical ML Model (TF-IDF + scikit-learn)
+
 ```powershell
 .\.venv\Scripts\python.exe -m src.models.train_ml_models
 ```
 
-This writes:
-- `models/intent_classifier.pkl`
-- `models/vectorizer.pkl`
+**Outputs:**
 
-**Training (Transformer)**
-Prepare DL training data:
+* `models/intent_classifier.pkl`
+* `models/vectorizer.pkl`
+
+---
+
+### Train Transformer Model
+
+Prepare data:
+
 ```powershell
 .\.venv\Scripts\python.exe -m src.models.prepare_dl_data
 ```
 
-Train the transformer model:
+Train model:
+
 ```powershell
 .\.venv\Scripts\python.exe -m src.models.train_dl_models
 ```
 
-This writes:
-- `models/transformer_intent_classifier/`
+**Output:**
 
-**Evaluation**
+* `models/transformer_intent_classifier/`
+
+---
+
+## 📈 Evaluation
+
 ```powershell
 .\.venv\Scripts\python.exe -m src.models.evaluate
 ```
 
-Artifacts are saved under `evaluation/`.
+Evaluation artifacts are saved under `evaluation/`.
 
-**Troubleshooting**
-- Missing model files: run `python -m src.models.train_ml_models`.
-- Missing packages: install from `requirements.txt`.
-- If you see warnings about sklearn pickle versions, retrain with your current scikit‑learn version.
+---
 
-**Development Notes**
-- Paths are project‑relative to support any working directory.
-- For production, pin versions in `requirements.txt` and run with a WSGI/ASGI server.
+## 🐳 Deployment
 
+* Dockerfile and docker-compose configuration available under `deployment/`
+* The API can be containerized and deployed on platforms like **Render, AWS, or Azure**
 
+---
 
+## 🛠️ Troubleshooting
 
--# Clarilaw.ai
--
--## Running the API from anywhere
--
--Install the project in editable mode once:
--
--```powershell
--cd C:\Users\Shiva\OneDrive\Desktop\Clarilaw.ai-main\Clarilaw.ai-main
--pip install -e .
--```
--
--After that, these both work from any directory:
--
--```powershell
--python -m api
--```
--
--```powershell
--uvicorn api.main:app --reload
--```
+* **Missing model files** → Run `train_ml_models`
+* **Dependency issues** → Reinstall from `requirements.txt`
+* **Pickle version warnings** → Retrain models with current scikit-learn version
+
+---
+
+## 📌 Design Philosophy
+
+* No frontend by design — focus is on **ML system engineering**
+* APIs + Swagger UI provide sufficient interaction
+* Clean separation between training, inference, and deployment
+
+---
+
+## 🎓 Resume Value
+
+This project demonstrates:
+
+* Real-world NLP problem solving
+* ML model experimentation and evaluation
+* API-based model serving
+* Deployment-ready ML systems
+
+> **Clarilaw.ai** is suitable for **Machine Learning Engineer** and **AI Engineer** roles.
+
+---
+
+📫 *Built as a major academic and portfolio project with industry-aligned ML practices.*
