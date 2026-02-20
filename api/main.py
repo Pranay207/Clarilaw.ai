@@ -68,3 +68,13 @@ def favicon():
 @app.get("/")
 def read_root():
     return {"message": "Welcome to Clarilaw-AI! Visit /docs for API documentation."}
+
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
+
+@app.get("/healthz")
+def healthz():
+    return {"status": "ok"}

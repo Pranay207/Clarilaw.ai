@@ -1,0 +1,18 @@
+.git
+.gitignore
+.venv
+__pycache__/
+*.py[cod]
+*.log
+*.err
+
+# Large or non-runtime directories
+notebooks/
+evaluation/
+logs/
+
+# Local/editor artifacts
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
