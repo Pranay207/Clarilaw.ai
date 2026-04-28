@@ -1,77 +1,35 @@
-# 📊 Phase 3 – Model Evaluation Results
-
-## Problem
-Legal document intent classification into:
-- IPC Sections
-- CRPC Sections
-- Final IC
-
----
-
-## Models Evaluated
-
-### Logistic Regression
-- Fast baseline model
-- Failed to predict minority class (CRPC)
-- Performance affected by class imbalance
-
----
-
-### Random Forest (Best ML Model)
-- Accuracy: ~99%
-- Correctly classified all legal categories
-- Robust to class imbalance
-
----
-
-### Transformer (DistilBERT)
-- Context-aware deep learning model
-- Better semantic understanding of legal language
-- Higher computational cost but scalable
-
----
-
-## Comparison Summary
-
-| Model | Accuracy | Minority Class Handling | Notes |
-|-----|---------|-------------------------|------|
-| Logistic Regression | Medium | ❌ Poor | Baseline |
-| Random Forest | ⭐⭐⭐⭐☆ | ✅ Good | Best ML |
-| Transformer | ⭐⭐⭐⭐⭐ | ✅ Excellent | Best NLP |
-
----
-
-## Conclusion
-- Random Forest is optimal for lightweight deployment
-- Transformer is ideal for advanced legal NLP tasks
-- Classical ML provides strong baselines
-
----
-
-## Phase 3 Status
-✅ Model training completed  
-✅ Evaluation completed  
-✅ Models saved  
-
 # Model Evaluation Results
 
-## Metrics Summary
-- Accuracy: 92.4%
-- Precision: 91.8%
-- Recall: 92.1%
-- F1-score: 91.9%
+## Dataset
+Current evaluation is based on `data/processed/cleaned_legal_texts.csv` with these six categories:
 
-## Confusion Matrix
-The confusion matrix shows strong diagonal dominance, indicating correct predictions for most classes.
+- Bail
+- Court Procedure
+- FIR Procedure
+- General Procedure
+- Police Procedure
+- Trial Procedure
 
-## Error Analysis
-- Most errors occur between closely related classes.
-- Minority classes show slightly lower recall due to limited samples.
-- Model tends to favor the majority class in ambiguous cases.
+## Latest Classical ML Run
 
-## Conclusion
-The model performs well overall with strong generalization.  
-Future improvements may include:
-- Handling class imbalance
-- Feature engineering
-- Trying ensemble models
+### Logistic Regression
+- Accuracy: 0.6636
+- Strong on `General Procedure`
+- Weak recall on minority classes such as `Bail` and `FIR Procedure`
+
+### Random Forest
+- Accuracy: 0.6822
+- Best-performing classical model in the current training script
+- Better balance than logistic regression, but still misses some minority classes
+
+## Deployment Note
+The training script now saves the best classical model to `models/intent_classifier.pkl`, which is the artifact used by the API.
+
+## Transformer Pipeline
+The transformer data preparation step now uses the same `category` labels as the classical pipeline.
+Transformer metrics are not recorded here because they depend on downloading the base model during training.
+
+## Summary
+- The current dataset is imbalanced, with `General Procedure` dominating the samples.
+- Random Forest is the strongest classical baseline for the checked-in data.
+- Minority-class performance still needs improvement through balancing, augmentation, or better label coverage.

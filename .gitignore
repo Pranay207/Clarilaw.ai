@@ -8,6 +8,5 @@ api.err
 models/
 !src/models/
 src/models/*
-!src/models/verify_models.py
-!src/models/__init__.py
+!src/models/*.py
 src/models/__pycache__/
